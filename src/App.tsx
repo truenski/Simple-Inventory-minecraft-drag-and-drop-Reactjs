@@ -5,57 +5,46 @@ import "./App.css"
 const listItems = [
 	{
 		id: "1",
-		name: <img src="http://www.101computing.net/mc/4-0.png" />,
 		value:4
 
 	},
 	{
 		id: "2",
-		name: <img src="http://www.101computing.net/mc/17-0.png" />,
 		value:17
 	},
 	{
 		id: "3",
-		name: <img src="http://www.101computing.net/mc/265-0.png" />,
 		value:265
 	},
 	{
 		id: "4",
-		name: <img src="http://www.101computing.net/mc/266-0.png" />,
 		value:266
 	},
 	{
 		id: "5",
-		name: <img src="http://www.101computing.net/mc/331-0.png" />,
 		value:331
 	}, {
 		id: "6",
-		name: <img src="http://www.101computing.net/mc/264-0.png" />,
 		value:264
 	}, {
 		id: "7",
-		name: <img src="http://www.101computing.net/mc/287-0.png" />,
 		value:287
 	}, {
 		id: "8",
-		name: <img src="http://www.101computing.net/mc/288-0.png" />,
 		value:288
 	}, {
 		id: "9",
-		name: <img src="http://www.101computing.net/mc/318-0.png" />,
 		value:318
 	}, {
 		id: "10",
-		name: <img src="http://www.101computing.net/mc/263-0.png" />,
 		value:263
 	}, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
 const getItemStyle = (isDragging: boolean, draggableStyle:any) => ({
 	
-		
+		opacity:isDragging?(0.7):(1),
 	 
-	
-	//transform: `translate(36px, 50px)`,
-	//transition: `all 2s ease-in`,
+
+	transition: `all 0.5s ease-in`,
 	...draggableStyle
 })
 
@@ -98,19 +87,31 @@ function App() {
 					{(provided) => (
 						<div className="todo" id="inventory" {...provided.droppableProps} ref={provided.innerRef}>
 							{todo.map((item, index) => {
-								return (
-									typeof item === 'object' ? <Draggable key={item?.id} draggableId={item?.id} index={index}>
+								return (<div className="gridCell">
+
+									{typeof item === 'object' ? <Draggable key={item?.id} draggableId={item?.id} index={index}>
 										{(provided, snapshot) => (
-											<div className="gridCell"
-												ref={provided.innerRef}
+											
+												 <img src={`http://www.101computing.net/mc/${item.value}-0.png`} 
+												 	ref={provided.innerRef}
 												{...provided.draggableProps}
 												{...provided.dragHandleProps}
-												style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}
-											>
-												 <img src="http://www.101computing.net/mc/4-0.png" />
-											</div>
+												style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)} />
+											
 										)}
-									</Draggable> : <div className="gridCell"></div>
+									</Draggable> : <Draggable key={index} draggableId={String(index)} index={index}>
+										{(provided) => (
+											
+												 <div
+												 	ref={provided.innerRef}
+												{...provided.draggableProps}
+												{...provided.dragHandleProps}
+												 />
+											
+										)}
+									</Draggable>}
+
+									</div>
 								)
 							})}
 						 {provided.placeholder}

@@ -30,7 +30,6 @@ body {
   display: grid;
   max-width: 36px*9;
   max-height: 36px*3;
-border:thick double #373737;
 overflow:hidden;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
