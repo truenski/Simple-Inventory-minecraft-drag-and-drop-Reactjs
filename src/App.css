@@ -1,12 +1,19 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
-}
+
 
 .App {
   font-family: sans-serif;
   text-align: center;
 }
+
+.boxesGroup {
+  display: grid;
+  max-width: 36px*9;
+  max-height: 36px*3;
+overflow:hidden;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
 
 body {
   background-color: #c6c6c6;
@@ -15,7 +22,8 @@ body {
   display:flex;
   justify-content: center;
 }
-.gridCell {
+
+.box {
   background-color: #8b8b8b;
   border-top: thick double #373737;
   border-left: thick double #373737;
@@ -24,13 +32,20 @@ body {
   width: 36px;
   height: 36px;
   float: left;
+  cursor:pointer;
 }
 
-#inventory {
-  display: grid;
-  max-width: 36px*9;
-  max-height: 36px*3;
-overflow:hidden;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+.box:hover{background-color:#bcbcbc}
+
+.content {
+  /* centering content in box */
+  position: relative;
+  float: left;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* decorating */
+  font-weight: bold;
+}
+
 }
