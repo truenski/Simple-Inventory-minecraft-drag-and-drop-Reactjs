@@ -1,22 +1,21 @@
-import React, { useState } from "react"
+import React from "react"
 import "./App.css"
+import { BoxesGroup } from "./Components/Inventory"
 
-
-  
-  
-	
-  
+ 
 
 function App() {
-	const [todo, setTodo] = useState(listItems)
-
-	}
 	return (
 		<div className="App">
-			
-				
+			<BoxesGroup/>
 		</div>
 	)
 }
+
+   
+
+  
+	
+ 
 
 export default App

@@ -1,25 +1,26 @@
-import { useState } from "react";
+import { DragEventHandler, useState } from "react";
 
-function Box (props){
+function Box (props: { draggable:boolean;onDragStart: (arg0: { id: any; }) => DragEventHandler<HTMLDivElement> | undefined; box: { id?: number | undefined; name?: number | undefined; }; onDragOver: (arg0: { id: any; }) => DragEventHandler<HTMLDivElement> | undefined; onDrop: (arg0: { id: any; }) => DragEventHandler<HTMLDivElement> | undefined; })
+{
 
 	return(
 <div
 		  className="box"
-			//style={{ backgroundColor: this.props.box.color }}
+			//style={{ backgroundColor: props.box.color }}
 		  draggable
-		  onDragStart={this.props.onDragStart({ id: this.props.box.id })}
-		  onDragOver={this.props.onDragOver({ id: this.props.box.id })}
-		  onDrop={this.props.onDrop({ id: this.props.box.id })}
+		  onDragStart={props.onDragStart({ id: props.box.id })}
+		  onDragOver={props.onDragOver({ id: props.box.id })}
+		  onDrop={props.onDrop({ id: props.box.id })}
 		  >
-		  <div className="content">{this.props.box instanceof Object  && <img src={`http://www.101computing.net/mc/${this.props.box.name}-0.png`}/>} </div>
+		  <div className="content">{props.box.name  && <img src={`http://www.101computing.net/mc/${props.box.name}-0.png`} alt={'props.box.name'}/>} </div>
 		</div>
 
 	)
   }
   
-  function BoxesGroup (){
+  export function BoxesGroup (){
 
-		const arrBoxes:{id:number,name?:number}[]  = [
+		const arrBoxes:{id?:number,name?:number}[]  = [
 		  { id: 1, name: 110},
 		  { id: 2, name: 115 },
 		  { id: 3, name: 364},
@@ -31,28 +32,29 @@ function Box (props){
 	  
         const [boxes,setBoxes] = useState(arrBoxes)
 
-	  const swapBoxes = (fromBox: { id: number; },toBox: { id: number; }) =>{
-		let boxes= boxes.slice();
+	  const swapBoxes = (fromBox:any,toBox:any) =>{
+		let boxeSlice= boxes.slice();
 		let fromIndex = -1;
 		let toIndex = -1;
 		
-		for (let i = 0; i < boxes.length; i++) {
-			if (boxes[i].id === fromBox.id) {
+		for (let i = 0; i < boxeSlice.length; i++) {
+			if (boxeSlice[i].id === fromBox.id) {
 			  fromIndex = i;
 			}
-			if (boxes[i].id === toBox.id) {
+			if (boxeSlice[i].id === toBox.id) {
 			  toIndex = i;
 			}
 		  }
 
 
-		  if (fromIndex != -1 && toIndex != -1) {
-			let { fromId, ...fromRest } = boxes[fromIndex];
-			let { toId, ...toRest } = boxes[toIndex];
-			boxes[fromIndex] = { id: fromBox.id, ...toRest };
-			boxes[toIndex] = { id: toBox.id, ...fromRest };
+		  if (fromIndex != -1 && toIndex != -1) { /*Destructuring object property typescript */
+			let { fromId, ...fromRest }: {fromId?:number} & {name?:number} = boxeSlice[fromIndex];
+			let { toId, ...toRest }: {toId?:number} & {name?:number} = boxeSlice[toIndex];
+			boxeSlice[fromIndex] = { id: fromBox.id, ...toRest };
+			boxeSlice[toIndex] = { id: toBox.id, ...fromRest };
 	  
-			this.setState({ boxes: boxes });
+			
+            setBoxes(boxeSlice)
 		  }
 	  }
 
@@ -62,7 +64,7 @@ function Box (props){
   /* The dragstart event is fired when the user starts dragging an element or text selection */
   /* event.target is the source element : that is dragged */
   /* Firefox requires calling dataTransfer.setData for the drag to properly work */
- const handleDragStart = data => event => {
+ const handleDragStart = (data: { id: any; }) => (event: { dataTransfer: { setData: (arg0: string, arg1: string) => void; }; }) => {
 	let fromBox = JSON.stringify({ id: data.id });
 	event.dataTransfer.setData("dragContent", fromBox);
   };
@@ -70,20 +72,20 @@ function Box (props){
   /* The dragover event is fired when an element or text selection is being dragged */
   /* over a valid drop target (every few hundred milliseconds) */
   /* The event is fired on the drop target(s) */
-  const handleDragOver = data => event => {
+  const handleDragOver = (data: any) => (event:any) => {
 	event.preventDefault(); // Necessary. Allows us to drop.
 	return false;
   };
   
   /* Fired when an element or text selection is dropped on a valid drop target */
   /* The event is fired on the drop target(s) */
-  const handleDrop = data => event => {
+  const handleDrop = (data: { id: any; }) => (event: { preventDefault: () => void; dataTransfer: { getData: (arg0: string) => string; }; }) => {
 	event.preventDefault();
   
 	let fromBox = JSON.parse(event.dataTransfer.getData("dragContent"));
 	let toBox = { id: data.id };
   
-	this.swapBoxes(fromBox, toBox);
+	swapBoxes(fromBox, toBox);
 	return false;
   };
   
