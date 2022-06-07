@@ -6,13 +6,13 @@ function Box (props: { draggable:boolean;onDragStart: (arg0: { id: any; }) => Dr
 	return(
 <div
 		  className="box"
-			//style={{ backgroundColor: props.box.color }}
+		
 		  draggable
 		  onDragStart={props.onDragStart({ id: props.box.id })}
 		  onDragOver={props.onDragOver({ id: props.box.id })}
 		  onDrop={props.onDrop({ id: props.box.id })}
 		  >
-		  <div className="content">{props.box.name  && <img src={`http://www.101computing.net/mc/${props.box.name}-0.png`} alt={'props.box.name'}/>} </div>
+		  <div className="content">{props.box.name  && <img src={`http://www.101computing.net/mc/${props.box.name}-0.png`} alt={`${props.box.name}`}/>} </div>
 		</div>
 
 	)
@@ -21,13 +21,10 @@ function Box (props: { draggable:boolean;onDragStart: (arg0: { id: any; }) => Dr
   export function BoxesGroup (){
 
 		const arrBoxes:{id?:number,name?:number}[]  = [
-		  { id: 1, name: 110},
-		  { id: 2, name: 115 },
-		  { id: 3, name: 364},
-		  { id: 4, name: 243 },
-		  { id: 5, name: 225 },
-		  { id: 6, name: 4},
-		  {id:7},{id:8},{id:9},{id:10},{id:11},{id:12},{id:13},{id:14},{id:15},{id:16},{id:17},{id:18},{id:19},{id:20},{id:21},{id:22},{id:23},{id:24},{id:25},{id:26},{id:27},{id:28},{id:29},{id:30},{id:31},{id:32},{id:33},{id:34},{id:35},{id:36}
+		  { id: 1, name: 110},{ id: 2, name: 115 },{ id: 3, name: 364},{ id: 4, name: 243 },{ id: 5, name: 225 },{ id: 6, name: 4},{id:7},{id:8},{id:9},
+		  {id:10},{id:11},{id:12},{id:13},{id:14},{id:15},{id:16},{id:17},{id:18},
+		  {id:19},{id:20},{id:21},{id:22},{id:23},{id:24},{id:25},{id:26},{id:27},
+		  {id:28},{id:29},{id:30},{id:31},{id:32},{id:33},{id:34},{id:35},{id:36}
 		]
 	  
         const [boxes,setBoxes] = useState(arrBoxes)
@@ -105,9 +102,9 @@ function Box (props: { draggable:boolean;onDragStart: (arg0: { id: any; }) => Dr
 
   return (
 	<>
-	  <h1>Inventário</h1>
-			<p>Arraste, separe, aumente quantidade.</p>
-	  <div className="boxesGroup">{makeBoxes()}</div>
+	<h1>Inventário</h1>
+	<p>Arraste, separe, aumente quantidade.</p>
+	<div className="boxesGroup">{makeBoxes()}</div>
 		
 	</>)
 	}
