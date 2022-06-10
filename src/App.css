@@ -1,8 +1,9 @@
-
+@import url('http://fonts.cdnfonts.com/css/minecraftia');
 
 .App {
-  font-family: sans-serif;
+  font-family: Minecraftia;
   text-align: center;
+
 }
 
 .boxesGroup {
@@ -46,6 +47,27 @@ body {
   transform: translate(-50%, -50%);
   /* decorating */
   font-weight: bold;
+}
+
+#inventory {
+  
+  width: 36*9px;
+  height: 36px*9;
+  background: #c6c6c6;
+  border-radius: 3px;
+  
+  padding:10px;
+  margin-bottom: 10px;
+}
+
+#inventory-div {
+  box-shadow:inset -10px -20px 1em 0px black, inset 20px 20px 1em #fefefe, 1px 1px 0.5em black;
+  padding-top:4px;
+  padding-left: 4px;
+  border: groove 3px;
+  border-right: solid 5px;
+  border-color: #373737;
+  border-radius:3px;
 }
 
 

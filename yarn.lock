@@ -8107,6 +8107,11 @@
   dependencies:
     "node-modules-regexp" "^1.0.0"
 
+"pixel-borders@^1.1.4":
+  "integrity" "sha512-jBX9MMRsCeYNl1sHnXnAgtBD5hLAMa59/MDvVBZUoeHtsF6t97goigzIPQHvssh8xsQ5w+vF7hqabutbpb0zxA=="
+  "resolved" "https://registry.npmjs.org/pixel-borders/-/pixel-borders-1.1.4.tgz"
+  "version" "1.1.4"
+
 "pkg-dir@^2.0.0":
   "integrity" "sha1-9tXREJ4Z1j7fQo4L1X4Sd3YVM0s="
   "resolved" "https://registry.npmjs.org/pkg-dir/-/pkg-dir-2.0.0.tgz"

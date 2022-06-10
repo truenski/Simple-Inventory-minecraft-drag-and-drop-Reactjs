@@ -42,6 +42,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-beautiful-dnd": "^13.0.0"
+    "@types/react-beautiful-dnd": "^13.0.0",
+    "pixel-borders": "^1.1.4"
   }
 }
