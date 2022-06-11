@@ -17,11 +17,21 @@ overflow:hidden;
 
 
 body {
-  background-color: #c6c6c6;
-  margin: 10px;
-  color: #404040;
+ 
+  
+  color: #fad58d;
   display:flex;
   justify-content: center;
+ 
+    background-image: url('./assets/minecraft-background.gif');
+    background-size: cover;
+    
+    
+    
+    height: 100vh;
+    padding:0;
+    margin:0;
+
 }
 
 .box {

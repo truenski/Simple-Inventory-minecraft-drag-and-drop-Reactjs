@@ -1,6 +1,15 @@
 import { DragEventHandler, useState } from "react";
 
-function Box (props: { draggable:boolean;onDragStart: (arg0: { id: any; }) => DragEventHandler<HTMLDivElement> | undefined; box: { id?: number | undefined; name?: number | undefined; }; onDragOver: (arg0: { id: any; }) => DragEventHandler<HTMLDivElement> | undefined; onDrop: (arg0: { id: any; }) => DragEventHandler<HTMLDivElement> | undefined; })
+type Props = {
+	box:{id?: number | undefined; name?: number | undefined;},
+	draggable:boolean,
+    onDragStart: (arg0: { id: any; }) => DragEventHandler<HTMLDivElement> | undefined,
+	onDragOver: (arg0: { id: any; }) => DragEventHandler<HTMLDivElement> | undefined, 
+	onDrop: (arg0: { id: any; }) => DragEventHandler<HTMLDivElement> | undefined,
+
+}
+
+function Box ({box,draggable,onDragStart,onDragOver,onDrop}:Props)
 {
 
 	return(
@@ -8,11 +17,11 @@ function Box (props: { draggable:boolean;onDragStart: (arg0: { id: any; }) => Dr
 		  className="box"
 		
 		  
-		  onDragStart={props.onDragStart({ id: props.box.id })}
-		  onDragOver={props.onDragOver({ id: props.box.id })}
-		  onDrop={props.onDrop({ id: props.box.id })}
+		  onDragStart={onDragStart({ id: box.id })}
+		  onDragOver={onDragOver({ id: box.id })}
+		  onDrop={onDrop({ id: box.id })}
 		  >
-		  <div className="content">{props.box.name  && <img draggable src={`http://www.101computing.net/mc/${props.box.name}-0.png`} alt={`${props.box.name}`}/>} </div>
+		  <div className="content">{box.name  && <img draggable src={`http://www.101computing.net/mc/${box.name}-0.png`} alt={`${box.name}`}/>} </div>
 		</div>
 
 	)
@@ -44,7 +53,7 @@ function Box (props: { draggable:boolean;onDragStart: (arg0: { id: any; }) => Dr
 		  }
 
 
-		  if (fromIndex != -1 && toIndex != -1) { /*Destructuring object property typescript */
+		  if (fromIndex !== -1 && toIndex !== -1) { /*Destructuring object property typescript */
 			let { fromId, ...fromRest }: {fromId?:number} & {name?:number} = boxeSlice[fromIndex];
 			let { toId, ...toRest }: {toId?:number} & {name?:number} = boxeSlice[toIndex];
 			boxeSlice[fromIndex] = { id: fromBox.id, ...toRest };
