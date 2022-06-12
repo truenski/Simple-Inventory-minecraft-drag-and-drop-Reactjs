@@ -1,5 +1,5 @@
 {
-  "name": "drag-and-drop",
+  "name": "simple-inventory-minecraft-drag-and-drop-reactjs",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -44,5 +44,7 @@
   "devDependencies": {
     "@types/react-beautiful-dnd": "^13.0.0",
     "pixel-borders": "^1.1.4"
-  }
+  },
+  "keywords": [],
+  "description": ""
 }
