@@ -26,13 +26,12 @@ body {
     background-image: url('./assets/minecraft-background.gif');
     background-size: cover;
     
-    
-    
     height: 100vh;
     padding:0;
     margin:0;
 
 }
+
 
 .box {
   background-color: #8b8b8b;
@@ -43,8 +42,8 @@ body {
   width: 36px;
   height: 36px;
   float: left;
-  cursor:pointer;
 }
+
 
 .box:hover{background-color:#bcbcbc}
 
