@@ -8,8 +8,8 @@
 
 .boxesGroup {
   display: grid;
-  max-width: 36px*9;
-  max-height: 36px*3;
+  max-width: 26rem;
+  max-height: 12rem;
 overflow:hidden;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -79,4 +79,7 @@ body {
   border-radius:3px;
 }
 
+.select-group {
+margin-top:10px;
+}
 
