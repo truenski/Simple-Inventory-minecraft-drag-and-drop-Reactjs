@@ -9,7 +9,7 @@
 .boxesGroup {
   display: grid;
  
-  grid-template-rows: 1fr 1fr 1fr 56px;
+  grid-template-rows: 1fr 1fr 1fr 0px 56px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
@@ -21,7 +21,7 @@ body {
   display:flex;
   justify-content: center;
  
-    background-image: url('./assets/minecraft-background.gif');
+    background-image: url('./assets/minecraft-background.gif'); 
     background-size: cover;
     
     height: 100vh;
@@ -32,16 +32,17 @@ body {
 
 
 .steve-background { 
-  left: 342px;
-    top: 147px;
-    position: absolute;
-    background-color: black;
-    border-top: thick double #373737;
-    border-left: thick double #373737;
-    border-right: double #ffffff;
-    border-bottom: double #ffffff;
-    width: 108px;
-    height: 170px;
+  left: 34%;
+  top: 89px;
+  position: relative;
+  background-color: black;
+  border-top: thick double #373737;
+  border-left: thick double #373737;
+  border-right: double #ffffff;
+  border-bottom: double #ffffff;
+  width: 108px;
+  height: 170px;
+  margin: -90px;
 }
 
 .box {
@@ -55,6 +56,12 @@ body {
   float: left;
 }
 
+.shield{
+  display: block;
+    position: relative;
+    left: 41%;
+    bottom: 3%;
+}
 
 .box:hover{background-color:#bcbcbc}
 
