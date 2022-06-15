@@ -3,18 +3,19 @@ import Box from "./Box";
 
 export function BoxesGroup() {
 
-	type group = { id?: number, name?: number, select?:boolean }[]
+	type group = { id?: number, name?: number, area?:string }[]
 	const arrInventory: group = [
+		{ id: 37, area:"armory"}, { id: 38, area:"armory" }, { id: 39, area:"armory"}, { id: 40, area:"armory" },
 		{ id: 1, name: 110 }, { id: 2, name: 115 }, { id: 3, name: 364 }, { id: 4, name: 243 }, { id: 5, name: 225 }, { id: 6, name: 4 }, { id: 7 }, { id: 8 }, { id: 9 },
 		{ id: 10}, { id: 11 }, { id: 12 }, { id: 13 }, { id: 14 }, { id: 15 }, { id: 16 }, { id: 17 }, { id: 18 },
 		{ id: 19 }, { id: 20 }, { id: 21 }, { id: 22 }, { id: 23 }, { id: 24 }, { id: 25 }, { id: 26 }, { id: 27 },
-		{ id: 28, select:true, name :118 }, { id: 29, select:true }, { id: 30, select:true }, { id: 31,select:true }, { id: 32, select:true }, { id: 33, select:true }, { id: 34, select:true }, { id: 35, select:true }, { id: 36, select:true }
-
+		{ id: 28, area:"select-group", name :118 }, { id: 29, area:"select-group" }, { id: 30, area:"select-group" }, { id: 31,area:"select-group" }, { id: 32, area:"select-group" }, { id: 33, area:"select-group" }, { id: 34, area:"select-group" }, { id: 35, area:"select-group" }, { id: 36, area:"select-group" }
+		
 	]
 
 
 	const arrArmory: group = [
-		 { id: 37}, { id: 38 }, { id: 39 }, { id: 40 }
+		
 	]
 
 	const arrCraft:  group = [
@@ -46,14 +47,14 @@ export function BoxesGroup() {
 		}
 
 		//se os index foram atribuidos
-		//pega o name e select no index
+		//pega o name e area no index
 		//Troca os elementos de inventory box
 		
 		if (fromIndex !== -1 && toIndex !== -1) {
-			let { fromId, ...fromRest }: { fromId?: number } & { name?: number, select?:boolean } = inventoryBoxes[fromIndex];
-			let { toId, ...toRest }: { toId?: number } & { name?: number, select?:boolean } = inventoryBoxes[toIndex];
-			inventoryBoxes[fromIndex] = { id: fromBox.id, name:toRest.name, select:fromRest.select };
-			inventoryBoxes[toIndex] = { id: toBox.id, name:fromRest.name, select:toRest.select };
+			let { fromId, ...fromRest }: { fromId?: number } & { name?: number, area?:string } = inventoryBoxes[fromIndex];
+			let { toId, ...toRest }: { toId?: number } & { name?: number, area?:string } = inventoryBoxes[toIndex];
+			inventoryBoxes[fromIndex] = { id: fromBox.id, name:toRest.name, area:fromRest.area };
+			inventoryBoxes[toIndex] = { id: toBox.id, name:fromRest.name, area:toRest.area };
 
 		}
 		
@@ -123,28 +124,12 @@ export function BoxesGroup() {
 		));
 	};
 
-	const makeSelectBoxes = ()=> {
-
-		return inventoryBoxes.filter(box=>box.select&&box).map(box => (
-			<Box
-				box={box}
-				key={box.id}
-				draggable
-				onEnter={handleDragEnter}
-				isDragging={isDragging}
-				onDragStart={handleDragStart}
-				onDragOver={handleDragOver}
-				onDrop={handleDrop}
-			/>
-		));
-	};
 
 
 	return (
 		<>
 
 			<div className="boxesGroup">{makeInventoryBoxes()}</div>
-			{/* <div className="boxesGroup" id="selectBoxes">{makeSelectBoxes()}</div> */}
 
 		</>)
 }

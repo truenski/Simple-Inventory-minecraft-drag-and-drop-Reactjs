@@ -8,10 +8,8 @@
 
 .boxesGroup {
   display: grid;
-  max-width: 26rem;
-  max-height: 12rem;
-overflow:hidden;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+ 
+  grid-template-rows: 1fr 1fr 1fr 56px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
@@ -32,6 +30,19 @@ body {
 
 }
 
+
+.steve-background { 
+  left: 342px;
+    top: 147px;
+    position: absolute;
+    background-color: black;
+    border-top: thick double #373737;
+    border-left: thick double #373737;
+    border-right: double #ffffff;
+    border-bottom: double #ffffff;
+    width: 108px;
+    height: 170px;
+}
 
 .box {
   background-color: #8b8b8b;
@@ -54,19 +65,20 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* decorating */
-  font-weight: bold;
+  
 }
 
 #inventory {
   
-  width: 36*9px;
-  height: 36px*9;
   background: #c6c6c6;
   border-radius: 3px;
   
   padding:10px;
   margin-bottom: 10px;
+  display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
 }
 
 #inventory-div {
@@ -81,5 +93,10 @@ body {
 
 .select-group {
 margin-top:10px;
+}
+
+.armory {
+   display:grid;
+  grid-column: 1/span 9; 
 }
 

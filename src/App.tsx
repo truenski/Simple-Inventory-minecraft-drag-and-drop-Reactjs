@@ -12,7 +12,7 @@ function App() {
 		
 		<div id="inventory-div">
 		<div id="inventory">
-			
+			<div className="steve-background"></div>
 			<BoxesGroup/>
 			
 		</div>
