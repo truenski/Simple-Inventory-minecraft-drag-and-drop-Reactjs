@@ -33,16 +33,20 @@ body {
 
 .steve-background { 
   left: 34%;
-  top: 89px;
-  position: relative;
-  background-color: black;
-  border-top: thick double #373737;
-  border-left: thick double #373737;
-  border-right: double #ffffff;
-  border-bottom: double #ffffff;
-  width: 108px;
-  height: 170px;
-  margin: -90px;
+    top: 89px;
+    position: relative;
+    background-color: black;
+    background-image: url("./assets/villager.gif");
+    background-size: 14em;
+    background-repeat: no-repeat;
+    background-position: 42% 87%;
+    border-top: thick double #373737;
+    border-left: thick double #373737;
+    border-right: double #ffffff;
+    border-bottom: double #ffffff;
+    width: 108px;
+    height: 170px;
+    margin: -90px;
 }
 
 .box {
@@ -57,10 +61,46 @@ body {
 }
 
 .shield{
-  display: block;
+  background-image: url('./assets/shield-slot.png');
+  background-size:35px;
+  background-repeat:no-repeat;
+  background-position: 50% 0; 
     position: relative;
     left: 41%;
     bottom: 3%;
+    
+}
+
+.chest{
+    background-image: url('./assets/chest-slot.png');
+    background-size:37px;
+    background-repeat:no-repeat;
+      position: relative;
+     
+}
+
+.helmet{
+  background-image: url('./assets/helmet-slot.png');
+  background-size:37px;
+  background-repeat:no-repeat;
+    position: relative;
+  
+}
+
+.legging{
+  background-image: url('./assets/legging-slot.png');
+  background-size:35px;
+  background-repeat:no-repeat;
+    position: relative;
+   
+}
+
+.boot{
+  background-image: url('./assets/boot-slot.png');
+  background-size:37px;
+  background-repeat:no-repeat;
+    position: relative;
+    
 }
 
 .box:hover{background-color:#bcbcbc}
