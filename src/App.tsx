@@ -12,8 +12,9 @@ function App() {
 	<p>Arraste, separe, aumente quantidade.</p>
 		<div id="inventory-div">
 		<div id="inventory">
+		    <p className="crafting-text">Crafting</p>
 			<div className="steve-background"></div>
-			
+			<div className="result-arrow"></div>
 			<BoxesGroup/>
 			
 		</div>

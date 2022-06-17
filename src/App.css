@@ -9,7 +9,7 @@
 .boxesGroup {
   display: grid;
  
-  grid-template-rows: 1fr 1fr 1fr 0px 56px;
+  grid-template-rows: 0px 1fr 1fr 1fr 0px 56px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
@@ -32,21 +32,23 @@ body {
 
 
 .steve-background { 
-  left: 34%;
-    top: 89px;
-    position: relative;
-    background-color: black;
-    background-image: url("./assets/villager.gif");
-    background-size: 14em;
-    background-repeat: no-repeat;
-    background-position: 42% 87%;
-    border-top: thick double #373737;
-    border-left: thick double #373737;
-    border-right: double #ffffff;
-    border-bottom: double #ffffff;
-    width: 108px;
-    height: 170px;
-    margin: -90px;
+  left: 11.63em;
+  top: 5.1em;
+  top: 1;
+  position: relative;
+  background-color: black;
+  background-image: url('./assets/villager.gif');
+  background-size: 14em;
+  background-repeat: no-repeat;
+  background-position: 42% 87%;
+  border-top: thick double #373737;
+  border-left: thick double #373737;
+  border-right: double #ffffff;
+  border-bottom: double #ffffff;
+  width: 108px;
+  height: 169px;
+  height: 169px;
+  margin: -140px;
 }
 
 .box {
@@ -58,6 +60,12 @@ body {
   width: 36px;
   height: 36px;
   float: left;
+}
+
+.result {
+  position: relative;
+    left: 11em;
+    top: 2.7em;
 }
 
 .shield{
@@ -119,13 +127,12 @@ body {
   
   background: #c6c6c6;
   border-radius: 3px;
-  
-  padding:10px;
+  padding: 10px;
   margin-bottom: 10px;
   display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 23.6rem;
 }
 
 #inventory-div {
@@ -147,3 +154,46 @@ margin-top:10px;
   grid-column: 1/span 9; 
 }
 
+.crafting-text{
+  position: relative;
+  left: 4.3em;
+  top: -1.7em;
+  color: #373737;
+}
+
+.crafting-1{
+  position: relative;
+  left: 14em;
+  top: 1.5em;
+}
+
+.crafting-2{
+  position: relative;
+  left: 14em;
+  top: 1.5em;
+}
+
+  .crafting-3{
+    position: relative;
+    left: 8.45em;
+    top: 4.3em;
+  }
+
+  .crafting-4{
+    position: relative;
+    left: 8.45em;
+    top: 4.3em;
+  }
+
+
+.result-arrow{
+  background-image:url('./assets/arrow.png');
+  position: relative;
+  background-repeat: no-repeat;
+  height: 44px;
+  background-size: 34px;
+  width: 48px;
+  left: 19.7em;
+  top: 5.7em;
+  opacity: 0.7;
+}

@@ -5,6 +5,7 @@ export function BoxesGroup() {
 
 	type group = { id?: number, name?: number, area?:string }[]
 	const arrInventory: group = [
+		{ id: 42, area:"crafting-1" },{ id: 43, area:"crafting-2" },{ id: 44, area:"crafting-3" },{ id: 45, area:"crafting-4" },{ id: 46, area:"result" },
 		{ id: 37, area:"armory helmet"}, { id: 38, area:"armory chest" }, { id: 39, area:"armory legging"}, { id: 40, area:"armory boot" },{ id: 41, area:"armory shield" },
 		{ id: 1, name: 110 }, { id: 2, name: 115 }, { id: 3, name: 364 }, { id: 4, name: 243 }, { id: 5, name: 225 }, { id: 6, name: 4 }, { id: 7 }, { id: 8 }, { id: 9 },
 		{ id: 10}, { id: 11 }, { id: 12 }, { id: 13 }, { id: 14 }, { id: 15 }, { id: 16 }, { id: 17 }, { id: 18 },
