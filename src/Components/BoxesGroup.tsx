@@ -10,22 +10,9 @@ export function BoxesGroup() {
 		{ id: 1, name: 110 }, { id: 2, name: 115 }, { id: 3, name: 364 }, { id: 4, name: 243 }, { id: 5, name: 225 }, { id: 6, name: 4 }, { id: 7 }, { id: 8 }, { id: 9 },
 		{ id: 10}, { id: 11 }, { id: 12 }, { id: 13 }, { id: 14 }, { id: 15 }, { id: 16 }, { id: 17 }, { id: 18 },
 		{ id: 19 }, { id: 20 }, { id: 21 }, { id: 22 }, { id: 23 }, { id: 24 }, { id: 25 }, { id: 26 }, { id: 27 },
-		{ id: 28, area:"select-group", name :118 }, { id: 29, area:"select-group" }, { id: 30, area:"select-group" }, { id: 31,area:"select-group" }, { id: 32, area:"select-group" }, { id: 33, area:"select-group" }, { id: 34, area:"select-group" }, { id: 35, area:"select-group" }, { id: 36, area:"select-group" }
+		{ id: 28, area:"select-group", name :118 }, { id: 29, area:"select-group" }, { id: 30, area:"select-group" }, { id: 31,area:"select-group" }, { id: 32, area:"select-group" }, { id: 33, area:"select-group" }, { id: 34, area:"select-group" }, { id: 35, area:"select-group" }, { id: 36, area:"select-group delete" }
 		
 	]
-
-
-	const arrArmory: group = [
-		
-	]
-
-	const arrCraft:  group = [
-		{ id: 41 }, { id: 42 }, { id: 43 }, { id: 44 }
-   ]
-
-   const arrCrafted:  group = [
-	{ id: 45 }
-]
 
 	const [inventoryBoxes, setInventoryBoxes] = useState(arrInventory)
 	
@@ -46,6 +33,12 @@ export function BoxesGroup() {
 				toIndex = i;
 			}
 		}
+
+        if(toBox.id == 36){
+			inventoryBoxes[fromIndex].name = undefined;
+			return
+		}
+
 
 		//se os index foram atribuidos
 		//pega o name e area no index
