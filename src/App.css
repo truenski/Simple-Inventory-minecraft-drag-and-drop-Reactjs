@@ -150,7 +150,6 @@ margin-top:10px;
 }
 
 .armory {
-   display:grid;
   grid-column: 1/span 9; 
 }
 
