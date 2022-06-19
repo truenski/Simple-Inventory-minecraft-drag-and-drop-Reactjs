@@ -29,7 +29,6 @@ var LEVER = 69;
 var TORCH = 50;
 var REDSTONETORCH = 76;
 var STICK = 280;
-
 var WOODEN_PLATE = 72;
 var STONE_PLATE = 70;
 var IRON_PLATE = 148;
@@ -140,7 +139,7 @@ export function BoxesGroup() {
 
 		if(box.class?.includes("result")){return}
 		
-		
+		if(!event.dataTransfer.getData("dragContent")){return false}
 		let fromBox = JSON.parse(event.dataTransfer.getData("dragContent"));
 		let toBox = { id: box.id };
 
