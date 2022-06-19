@@ -42,14 +42,14 @@ export function BoxesGroup() {
 
 	
 
-	type group = { id?: number, name?: number, class?:string }[]
+	type group = { id?: number, itemID?: number, class?:string }[]
 	const arrInventory: group = [
 		{ id: 42, class:"crafting-1" },{ id: 43, class:"crafting-2" },{ id: 44, class:"crafting-3" },{ id: 45, class:"crafting-4" },{ id: 46, class:"result" },
 		{ id: 37, class:"armory helmet"}, { id: 38, class:"armory chest" }, { id: 39, class:"armory legging"}, { id: 40, class:"armory boot" },{ id: 41, class:"armory shield" },
-		{ id: 1, name: WOOD }, { id: 2, name: COBBLESTONE }, { id: 3, name: FLINT }, { id: 4, name: IRON }, { id: 5, name: REDSTONE }, { id: 6, name: COAL }, { id: 7}, { id: 8 }, { id: 9},
+		{ id: 1, itemID: WOOD }, { id: 2, itemID: COBBLESTONE }, { id: 3, itemID: FLINT }, { id: 4, itemID: IRON }, { id: 5, itemID: REDSTONE }, { id: 6, itemID: COAL }, { id: 7}, { id: 8 }, { id: 9},
 		{ id: 10}, { id: 11 }, { id: 12}, { id: 13}, { id: 14 }, { id: 15 }, { id: 16 }, { id: 17 }, { id: 18 },
 		{ id: 19 }, { id: 20 }, { id: 21 }, { id: 22 }, { id: 23 }, { id: 24 }, { id: 25 }, { id: 26 }, { id: 27 },
-		{ id: 28, class:"select-group", name:IRON_PICKAXE  }, { id: 29, class:"select-group", name:STONE_SWORD }, { id: 30, class:"select-group", name:CHAINMAIL_HELMET }, { id: 31,class:"select-group", name:CHAINMAIL_CHESTPLATE }, { id: 32, class:"select-group", name:CHAINMAIL_BOOTS  }, { id: 33, class:"select-group", name:CHAINMAIL_LEGGINGS }, { id: 34, class:"select-group", name:SHIELD }, { id: 35, class:"select-group" }, { id: 36, class:"select-group delete" }
+		{ id: 28, class:"select-group", itemID:IRON_PICKAXE  }, { id: 29, class:"select-group", itemID:STONE_SWORD }, { id: 30, class:"select-group", itemID:CHAINMAIL_HELMET }, { id: 31,class:"select-group", itemID:CHAINMAIL_CHESTPLATE }, { id: 32, class:"select-group", itemID:CHAINMAIL_BOOTS  }, { id: 33, class:"select-group", itemID:CHAINMAIL_LEGGINGS }, { id: 34, class:"select-group", itemID:SHIELD }, { id: 35, class:"select-group" }, { id: 36, class:"select-group delete" }
 		
 	]
 
@@ -74,23 +74,23 @@ export function BoxesGroup() {
 
 		//delete box function
         if(toBox.id == 36){
-			inventoryBoxes[fromIndex].name = undefined;
+			inventoryBoxes[fromIndex].itemID = undefined;
 			return
 		}
 
 		//prevents armor to swap with another item inside armory box
-		if(inventoryBoxes[fromIndex].class?.includes("armory") && inventoryBoxes[toIndex].name !== undefined){
+		if(inventoryBoxes[fromIndex].class?.includes("armory") && inventoryBoxes[toIndex].itemID !== undefined){
 			return}
 		
 		//se os index foram atribuidos
-		//pega o name e class no index
+		//pega o itemID e class no index
 		//Troca os elementos de inventory box
 		
 		if (fromIndex !== -1 && toIndex !== -1) {
-			let { fromId, ...fromRest }: { fromId?: number } & { name?: number, class?:string } = inventoryBoxes[fromIndex];
-			let { toId, ...toRest }: { toId?: number } & { name?: number, class?:string } = inventoryBoxes[toIndex];
-			inventoryBoxes[fromIndex] = { id: fromBox.id, name:toRest.name, class:fromRest.class };
-			inventoryBoxes[toIndex] = { id: toBox.id, name:fromRest.name, class:toRest.class };
+			let { fromId, ...fromRest }: { fromId?: number } & { itemID?: number, class?:string } = inventoryBoxes[fromIndex];
+			let { toId, ...toRest }: { toId?: number } & { itemID?: number, class?:string } = inventoryBoxes[toIndex];
+			inventoryBoxes[fromIndex] = { id: fromBox.id, itemID:toRest.itemID, class:fromRest.class };
+			inventoryBoxes[toIndex] = { id: toBox.id, itemID:fromRest.itemID, class:toRest.class };
 
 		}
 		
@@ -128,7 +128,7 @@ export function BoxesGroup() {
 
 	const handleDrop = ( box: {
 		id?: number | undefined;
-		name?: number | undefined;
+		itemID?: number | undefined;
 		class?: string | undefined;
 	}) => (event: {
 		preventDefault: () => void; dataTransfer: {
@@ -157,16 +157,16 @@ export function BoxesGroup() {
 	const checkArmoryType = (fromBox: { id: number | undefined},toBox: {id?: number | undefined}) => {
 		
 //Verificar Tipo de armory
-//se o fromName bater com o toClass, swap
+//se o fromitemID bater com o toClass, swap
 //se não, continua checagem
 
 		let fromItem = inventoryBoxes.find(x => x.id === fromBox.id);
 		let toItem = inventoryBoxes.find(x => x.id === toBox.id);
 
-if(!(fromItem!.name! >= 302 && fromItem!.name! <= 305 || fromItem!.name! === 442 )){return}
+if(!(fromItem!.itemID! >= 302 && fromItem!.itemID! <= 305 || fromItem!.itemID! === 442 )){return}
 
 swapBoxes(fromBox,toBox)
-		//se from box.name não estar entre 302 e 305 ou 442, return
+		//se from box.itemID não estar entre 302 e 305 ou 442, return
 		// se tiver 302, swapboxes(fromBox,toBox)...   
 	}
 

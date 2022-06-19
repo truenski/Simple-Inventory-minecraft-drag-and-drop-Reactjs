@@ -3,7 +3,7 @@ import { DragEventHandler, useEffect } from "react";
 type Props = {
 	box: {
 		id?: number | undefined;
-		name?: number | undefined;
+		itemID?: number | undefined;
 		class?: string | undefined;
 	},
 	draggable: boolean,
@@ -11,7 +11,7 @@ type Props = {
 	onDragOver: (arg0: { id: any; }) => DragEventHandler<HTMLDivElement> | undefined,
 	onDrop: (arg0: {
 		id?: number | undefined;
-		name?: number | undefined;
+		itemID?: number | undefined;
 		class?: string | undefined;
 	}) => DragEventHandler<HTMLDivElement> | undefined,
 	onEnter: () => DragEventHandler<HTMLDivElement> | undefined,
@@ -25,12 +25,12 @@ export default function Box({ box, draggable, onDragStart, onDragOver, onDrop, i
 	return (
 		<div
 			 className={box.class?`box ${box.class}`:"box"}
-			style={box.class?.includes("armory") && box.name? {backgroundImage:"none"}:undefined}
+			style={box.class?.includes("armory") && box.itemID? {backgroundImage:"none"}:undefined}
 			onDragEnter={onEnter}
 			onDragStart={onDragStart({ id: box.id })}
 			onDragOver={onDragOver({ id: box.id })}
 			onDrop={onDrop(box)}
-		>{box.name && <img className="content" draggable src={`http://www.101computing.net/mc/${box.name}-0.png`} alt={`${box.name}`} />}
+		>{box.itemID && <img className="content" draggable src={`http://www.101computing.net/mc/${box.itemID}-0.png`} alt={`${box.itemID}`} />}
 		</div>
 
 	)
