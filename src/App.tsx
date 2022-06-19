@@ -9,7 +9,7 @@ function App() {
 		<div className="App">
 			<h1>Inventory</h1>
 
-	<p>Arraste, separe, aumente quantidade.</p>
+	<p>Arraste, delete, equipe.</p>
 		<div id="inventory-div">
 		<div id="inventory">
 		    <p className="crafting-text">Crafting</p>

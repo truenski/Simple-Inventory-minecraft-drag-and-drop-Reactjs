@@ -19,19 +19,20 @@ var SHIELD = 442;
 
 
 //Craftables
-var IRON_NUGGET = 452;
-var WOOD_PLANK = 5;
-var TORCH = 50;
-var CRAFTING_TABLE = 58;
-var REDSTONETORCH = 76;
-var FLINT_AND_STEEL = 259;
-var STICK = 280;
 var WOODEN_BUTTON = 143;
 var STONE_BUTTON = 77;
+var IRON_NUGGET = 452;
+var WOOD_PLANK = 5;
+var CRAFTING_TABLE = 58;
+var FLINT_AND_STEEL = 259;
+var LEVER = 69;
+var TORCH = 50;
+var REDSTONETORCH = 76;
+var STICK = 280;
+
 var WOODEN_PLATE = 72;
 var STONE_PLATE = 70;
 var IRON_PLATE = 148;
-var LEVER = 69;
 
 
 
@@ -53,7 +54,6 @@ export function BoxesGroup() {
 	]
 
 	const [inventoryBoxes, setInventoryBoxes] = useState(arrInventory)
-	
 	const [isDragging, setIsDragging] = useState<boolean>(false)
 
 	
@@ -139,6 +139,7 @@ export function BoxesGroup() {
 		setIsDragging(false);
 
 		if(box.class?.includes("result")){return}
+		
 		
 		let fromBox = JSON.parse(event.dataTransfer.getData("dragContent"));
 		let toBox = { id: box.id };

@@ -1,4 +1,4 @@
-import { DragEventHandler } from "react";
+import { DragEventHandler, useEffect } from "react";
 
 type Props = {
 	box: {
@@ -21,17 +21,16 @@ type Props = {
 
 export default function Box({ box, draggable, onDragStart, onDragOver, onDrop, isDragging, onEnter }: Props) {
 
-//se box.class.includes("armory") onDrop({id:box.id})
-// se não tem armory, não droppable
+		
 	return (
 		<div
-			className={box.class?`box ${box.class}`:"box"}
+			 className={box.class?`box ${box.class}`:"box"}
+			style={box.class?.includes("armory") && box.name? {backgroundImage:"none"}:undefined}
 			onDragEnter={onEnter}
 			onDragStart={onDragStart({ id: box.id })}
 			onDragOver={onDragOver({ id: box.id })}
 			onDrop={onDrop(box)}
-		>
-			{box.name && <img className="content" draggable src={`http://www.101computing.net/mc/${box.name}-0.png`} alt={`${box.name}`} />}
+		>{box.name && <img className="content" draggable src={`http://www.101computing.net/mc/${box.name}-0.png`} alt={`${box.name}`} />}
 		</div>
 
 	)
