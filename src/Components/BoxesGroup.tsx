@@ -162,7 +162,11 @@ export function BoxesGroup() {
 		let fromItem = inventoryBoxes.find(x => x.id === fromBox.id);
 		let toItem = inventoryBoxes.find(x => x.id === toBox.id);
 
-if(!(fromItem!.itemID! >= 302 && fromItem!.itemID! <= 305 || fromItem!.itemID! === 442 )){return}
+if(fromItem!.itemID! !== 302 && toItem?.class?.includes("helmet")){return}
+if(fromItem!.itemID! !== 303 && toItem?.class?.includes("chest")){return}
+if(fromItem!.itemID! !== 304 && toItem?.class?.includes("legging")){return}
+if(fromItem!.itemID! !== 305 && toItem?.class?.includes("boot")){return}
+if(fromItem!.itemID! !== 442 && toItem?.class?.includes("shield")){return}
 
 swapBoxes(fromBox,toBox)
 		//se from box.itemID não estar entre 302 e 305 ou 442, return
