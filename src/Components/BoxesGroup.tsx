@@ -70,13 +70,20 @@ export function BoxesGroup() {
 		const craft3 = inventoryBoxes[2];
 		const craft4 = inventoryBoxes[3];
 		const result = inventoryBoxes[4];
-		const boxes = [craft1.itemID, craft2.itemID, craft3.itemID, craft4.itemID];	
+		const CraftingBoxes = [craft1.itemID, craft2.itemID, craft3.itemID, craft4.itemID];	
+		const filledCraftingBoxes = CraftingBoxes.filter(x=>x!==undefined);
 		let currRecipe = null;
-		//se só tiver 1 item retorna receita
-		if(boxes.filter(x=>x!==undefined).length === 1){currRecipe = boxes.filter(x=>x!==undefined).join('')}
-		//se não, retorna receita
-		else if(boxes.filter(x=>x!==undefined).length > 1){currRecipe = boxes.map(n => { if (n === undefined) { n = -1 } return n }).join("");}
-        
+		
+		//case crafting table has 4 items
+		if(filledCraftingBoxes.length === 4){
+		currRecipe = CraftingBoxes.join("")}
+		//case crafting table has 2 or 3 items
+		else if(filledCraftingBoxes.length == 2 ||filledCraftingBoxes.length == 3 ){
+		currRecipe = CraftingBoxes.map(n => { if (n === undefined) { n = -1 } return n }).join("");}
+        //case crafting table has only 1 item
+		else if(filledCraftingBoxes.length === 1){
+		currRecipe = filledCraftingBoxes.join('')}
+
 		if(currRecipe == null){result.itemID = undefined; return}
 
 		for (const key in gameItems.recipes) {
