@@ -21,10 +21,11 @@ export var SHIELD = 442;
 type itemObj = { id: number, recipe: string[] | string };
 export const recipes:Record<string,itemObj> = {
     STONE_BUTTON: { id: 77, recipe: "4" },
+    CRAFTING_TABLE: { id: 58, recipe: "5555" },
     WOODEN_BUTTON: { id: 143, recipe: "5" },
     IRON_NUGGET: { id: 452, recipe: "265" },
     WOOD_PLANK: { id: 5, recipe: "17" },
-    CRAFTING_TABLE: { id: 58, recipe: "5555" },
+
     FLINT_AND_STEEL: { id: 259, recipe: "-1265318-1" },
     GLOWSTONE: { id: 348, recipe:"89898989" },
     LEVER: { id: 69, recipe: ["280-14-1", "-1280-14"] },
