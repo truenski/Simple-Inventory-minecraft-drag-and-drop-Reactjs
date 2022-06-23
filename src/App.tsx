@@ -16,7 +16,6 @@ function App() {
 			<div className="steve-background"></div>
 			<div className="result-arrow"></div>
 			<BoxesGroup/>
-			
 		</div>
 		</div>
 		<small style={{float:'right'}}>by Kesney Mendes Viana</small>

@@ -4,10 +4,6 @@ import * as gameItems from "../gameItems";
 
 export function BoxesGroup() {
 
-// .items-28-453-0 {
-	// 	width: 32px;
-	// 	height: 32px;
-	// 	`url(../assets/items-28.png) -800px -32px no-repeat important!`
 	
 
 	type group = { id?: number, itemID?: number, class?: string }[]
