@@ -60,6 +60,7 @@ body {
   width: 36px;
   height: 36px;
   float: left;
+  position: relative;
 }
 
 .result {
@@ -201,4 +202,21 @@ margin-top:10px;
   background-image: url('./assets/delete.jpg');
     background-size: cover;
     background-color: #cf1f1f80;
+}
+
+.quantity{
+  position: absolute;
+  left: 33%;
+  top: 47%;
+  font-size: 12px;
+  display: flex;
+  width: 24px;
+  justify-content: flex-end;
+  pointer-events: none;
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  color:white;
 }

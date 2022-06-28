@@ -5,6 +5,8 @@ type Props = {
 		id?: number | undefined;
 		itemID?: number | undefined;
 		class?: string | undefined;
+		quantity?: number | undefined;
+
 	},
 	draggable: boolean,
 	onDragStart: (arg0: { id: any; }) => DragEventHandler<HTMLDivElement> | undefined,
@@ -30,7 +32,9 @@ export default function Box({ box, draggable, onDragStart, onDragOver, onDrop, i
 			onDragStart={box.itemID ? onDragStart({ id: box.id }):undefined}
 			onDragOver={onDragOver({ id: box.id })}
 			onDrop={onDrop(box)}
-		>{box.itemID && <img className="content" draggable src={"/images/"+box.itemID+"-0.png"} alt={`${box.itemID}`} />}
+		>{box.itemID && <img className="content" draggable src={"/images/"+box.itemID+"-0.png"} alt={`${box.itemID}`} />
+		}
+		{box.quantity! > 1 && <div className="quantity">{box.quantity}</div>}
 	
 		</div>
 

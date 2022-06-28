@@ -18,20 +18,20 @@ export var SHIELD = 442;
 
 
 //Craftables
-type itemObj = { id: number, recipe: string[] | string };
+type itemObj = { id: number, recipe: string[] | string, quantity:number };
 export const recipes:Record<string,itemObj> = {
-    STONE_BUTTON: { id: 77, recipe: "4" },
-    CRAFTING_TABLE: { id: 58, recipe: "5555" },
-    WOODEN_BUTTON: { id: 143, recipe: "5" },
-    IRON_NUGGET: { id: 452, recipe: "265" },
-    WOOD_PLANK: { id: 5, recipe: "17" },
+    STONE_BUTTON: { id: 77, recipe: "4", quantity:1 },
+    CRAFTING_TABLE: { id: 58, recipe: "5555", quantity:1 },
+    WOODEN_BUTTON: { id: 143, recipe: "5", quantity:1 },
+    IRON_NUGGET: { id: 452, recipe: "265", quantity:9 },
+    WOOD_PLANK: { id: 5, recipe: "17", quantity:4 },
 
-    FLINT_AND_STEEL: { id: 259, recipe: "-1265318-1" },
-    LEVER: { id: 69, recipe: ["280-14-1", "-1280-14"] },
-    TORCH: { id: 50, recipe: ["263-1280-1", "-1263-1280"] },
-    REDSTONETORCH: { id: 76, recipe: ["331-1280-1", "-1331-1280"] },
-    STICK: { id: 280, recipe: ["5-15-1", "-15-15"] },
-    WOODEN_PLATE: { id: 72, recipe: ["-1-155", "55-1-1"] },
+    FLINT_AND_STEEL: { id: 259, recipe: "-1265318-1", quantity:1 },
+    LEVER: { id: 69, recipe: ["280-14-1", "-1280-14"], quantity:1 },
+    TORCH: { id: 50, recipe: ["263-1280-1", "-1263-1280"], quantity:4 },
+    REDSTONETORCH: { id: 76, recipe: ["331-1280-1", "-1331-1280"], quantity:1 },
+    STICK: { id: 280, recipe: ["5-15-1", "-15-15"], quantity:4 },
+    WOODEN_PLATE: { id: 72, recipe: ["-1-155", "55-1-1"], quantity:1 },
 }
 
   // STONE_PLATE: { id: 70, recipe: ["-1-144", "44-1-1"] },
