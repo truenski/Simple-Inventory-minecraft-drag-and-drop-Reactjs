@@ -20,13 +20,13 @@ export function BoxesGroup() {
     { id: 39, class: "armory legging" },
     { id: 40, class: "armory boot" },
     { id: 41, class: "armory shield" },
-    { id: 1, itemID: gameItems.WOOD, quantity: 1 },
-    { id: 2, itemID: gameItems.COBBLESTONE, quantity: 1 },
-    { id: 3, itemID: gameItems.FLINT, quantity: 1 },
-    { id: 4, itemID: gameItems.IRON, quantity: 1 },
-    { id: 5, itemID: gameItems.COAL, quantity: 1 },
-    { id: 6, itemID: gameItems.REDSTONE, quantity: 1 },
-    { id: 7},
+    { id: 1, itemID: gameItems.WOOD, quantity: 8 },
+    { id: 2, itemID: gameItems.COBBLESTONE, quantity: 8 },
+    { id: 3, itemID: gameItems.FLINT, quantity: 8 },
+    { id: 4, itemID: gameItems.IRON, quantity: 8 },
+    { id: 5, itemID: gameItems.COAL, quantity: 8 },
+    { id: 6, itemID: gameItems.REDSTONE, quantity: 8 },
+    { id: 7 },
     { id: 8 },
     { id: 9 },
     { id: 10 },
@@ -51,37 +51,31 @@ export function BoxesGroup() {
       id: 28,
       class: "select-group",
       itemID: gameItems.IRON_PICKAXE,
-      quantity: 1,
     },
     {
       id: 29,
       class: "select-group",
       itemID: gameItems.STONE_SWORD,
-      quantity: 1,
     },
     {
       id: 30,
       class: "select-group",
       itemID: gameItems.CHAINMAIL_HELMET,
-      quantity: 1,
     },
     {
       id: 31,
       class: "select-group",
       itemID: gameItems.CHAINMAIL_CHESTPLATE,
-      quantity: 1,
     },
     {
       id: 32,
       class: "select-group",
       itemID: gameItems.CHAINMAIL_BOOTS,
-      quantity: 1,
     },
     {
       id: 33,
       class: "select-group",
       itemID: gameItems.CHAINMAIL_LEGGINGS,
-      quantity: 1,
     },
     { id: 34, class: "select-group", itemID: gameItems.SHIELD, quantity: 1 },
     { id: 35, class: "select-group" },
@@ -104,7 +98,9 @@ export function BoxesGroup() {
       }
     }
 
-if(fromIndex === toIndex){return}
+    if (fromIndex === toIndex) {
+      return;
+    }
 
     //delete box function
     if (toBox.id === 36) {
@@ -115,7 +111,11 @@ if(fromIndex === toIndex){return}
     }
 
     //prevent swapping result with an item
-    if (fromBox.id === 46 && inventoryBoxes[toIndex].itemID && inventoryBoxes[fromIndex].itemID !== inventoryBoxes[toIndex].itemID) {
+    if (
+      fromBox.id === 46 &&
+      inventoryBoxes[toIndex].itemID &&
+      inventoryBoxes[fromIndex].itemID !== inventoryBoxes[toIndex].itemID
+    ) {
       return;
     }
 
@@ -127,52 +127,58 @@ if(fromIndex === toIndex){return}
       return;
     }
 
-    //Same items add quantity function
-    if (inventoryBoxes[fromIndex].id !== inventoryBoxes[toIndex].id && inventoryBoxes[fromIndex].itemID === inventoryBoxes[toIndex].itemID) {
-		inventoryBoxes[toIndex]!.quantity! += inventoryBoxes[fromIndex]!.quantity!;
+    //Same items add quantity functionu
+    if (
+      inventoryBoxes[fromIndex].id !== inventoryBoxes[toIndex].id &&
+      inventoryBoxes[fromIndex].itemID === inventoryBoxes[toIndex].itemID
+    ) {
+      inventoryBoxes[toIndex]!.quantity! +=
+        inventoryBoxes[fromIndex]!.quantity!;
 
-		inventoryBoxes[fromIndex].itemID = undefined;
-		inventoryBoxes[fromIndex].quantity = undefined;
-		if (
-			toIndex == 0 ||
-			toIndex == 1 ||
-			toIndex == 2 ||
-			toIndex == 3 ||
-			toIndex == 4 ||
-			fromIndex == 0 ||
-			fromIndex == 1 ||
-			fromIndex == 2 ||
-			fromIndex == 3 ||
-			fromIndex == 4
-		  ) {
-			checkRecipe();
-		  }
-		return;
-	  }
+      inventoryBoxes[fromIndex].itemID = undefined;
+      inventoryBoxes[fromIndex].quantity = undefined;
+      if (
+        toIndex == 0 ||
+        toIndex == 1 ||
+        toIndex == 2 ||
+        toIndex == 3 ||
+        toIndex == 4 ||
+        fromIndex == 0 ||
+        fromIndex == 1 ||
+        fromIndex == 2 ||
+        fromIndex == 3 ||
+        fromIndex == 4
+      ) {
+        checkRecipe();
+      }
+      return;
+    }
 
-	//using only one quantity per drag in the inventory
-	if(
-		inventoryBoxes[fromIndex]!.quantity! > 1 &&  fromBox.id !== 46 && !inventoryBoxes[toIndex].itemID
-	) {
-     --inventoryBoxes[fromIndex]!.quantity!;
-	 inventoryBoxes[toIndex].itemID = inventoryBoxes[fromIndex].itemID;
-	 inventoryBoxes[toIndex].quantity = 1;
-	 if (
-		toIndex == 0 ||
-		toIndex == 1 ||
-		toIndex == 2 ||
-		toIndex == 3 ||
-		toIndex == 4 ||
-		fromIndex == 0 ||
-		fromIndex == 1 ||
-		fromIndex == 2 ||
-		fromIndex == 3 ||
-		fromIndex == 4
-	  ) {
-		checkRecipe();
-	  }
-	 return
-	}
+    //using only one quantity per drag in the inventory
+    if (
+      inventoryBoxes[fromIndex]!.quantity! > 1 &&
+      fromBox.id !== 46 &&
+      !inventoryBoxes[toIndex].itemID
+    ) {
+      --inventoryBoxes[fromIndex]!.quantity!;
+      inventoryBoxes[toIndex].itemID = inventoryBoxes[fromIndex].itemID;
+      inventoryBoxes[toIndex].quantity = 1;
+      if (
+        toIndex == 0 ||
+        toIndex == 1 ||
+        toIndex == 2 ||
+        toIndex == 3 ||
+        toIndex == 4 ||
+        fromIndex == 0 ||
+        fromIndex == 1 ||
+        fromIndex == 2 ||
+        fromIndex == 3 ||
+        fromIndex == 4
+      ) {
+        checkRecipe();
+      }
+      return;
+    }
 
     if (fromIndex !== -1 && toIndex !== -1) {
       let {
@@ -204,7 +210,6 @@ if(fromIndex === toIndex){return}
         quantity: fromRest.quantity,
       };
     }
-
 
     //when move item to a crafting box
     if (
@@ -260,7 +265,7 @@ if(fromIndex === toIndex){return}
       currRecipe = filledCraftingBoxes.join("");
     }
 
-	let matchRecipe = false
+    let matchRecipe = false;
     for (const key in gameItems.recipes) {
       let itemObj = gameItems.recipes[key];
       if (
@@ -268,18 +273,16 @@ if(fromIndex === toIndex){return}
         currRecipe === itemObj.recipe[0] ||
         currRecipe === itemObj.recipe[1]
       ) {
-		matchRecipe = true;
+        matchRecipe = true;
         result.itemID = itemObj.id;
-		result.quantity = itemObj.quantity;
+        result.quantity = itemObj.quantity;
       }
-	  
     }
 
     if (!matchRecipe) {
-		result.itemID = undefined;
-		result.quantity = undefined;
-	  }
-
+      result.itemID = undefined;
+      result.quantity = undefined;
+    }
   };
 
   const handleDragStart =
@@ -299,6 +302,7 @@ if(fromIndex === toIndex){return}
       let fromBox = JSON.stringify({ id: data.id });
       event.stopPropagation();
 
+    
       event.dataTransfer.setData("dragContent", fromBox);
       setIsDragging(true);
     };
@@ -331,6 +335,7 @@ if(fromIndex === toIndex){return}
 
       setIsDragging(false);
 
+
       if (box.class?.includes("result")) {
         return;
       }
@@ -341,6 +346,16 @@ if(fromIndex === toIndex){return}
       let fromBox = JSON.parse(event.dataTransfer.getData("dragContent"));
       let toBox = { id: box.id };
 
+	  if(fromBox.id === 46){ 
+		inventoryBoxes[0].itemID = undefined;
+		inventoryBoxes[1].itemID = undefined;
+		inventoryBoxes[2].itemID = undefined;
+		inventoryBoxes[3].itemID = undefined;
+		inventoryBoxes[0].quantity = undefined;
+		inventoryBoxes[1].quantity = undefined;
+		inventoryBoxes[2].quantity = undefined;
+		inventoryBoxes[3].quantity = undefined;
+		  }
       //Verificar se toBox pertence a armory
       //se sim - verificar tipo
       //se não - continue com swap
@@ -403,7 +418,9 @@ if(fromIndex === toIndex){return}
 
   return (
     <>
-      <div className="boxesGroup">{makeInventoryBoxes()}</div>
+      <div className="boxesGroup" draggable={false}>
+        {makeInventoryBoxes()}
+      </div>
     </>
   );
 }

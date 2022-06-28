@@ -32,7 +32,8 @@ export default function Box({ box, draggable, onDragStart, onDragOver, onDrop, i
 			onDragStart={box.itemID ? onDragStart({ id: box.id }):undefined}
 			onDragOver={onDragOver({ id: box.id })}
 			onDrop={onDrop(box)}
-		>{box.itemID && <img className="content" draggable src={"/images/"+box.itemID+"-0.png"} alt={`${box.itemID}`} />
+			draggable={false}
+		>{box.itemID && <img className="content" draggable={true} src={"/images/"+box.itemID+"-0.png"} alt={`${box.itemID}`} />
 		}
 		{box.quantity! > 1 && <div className="quantity">{box.quantity}</div>}
 	
