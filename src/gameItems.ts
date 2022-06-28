@@ -25,8 +25,10 @@ export const recipes:Record<string,itemObj> = {
     WOODEN_BUTTON: { id: 143, recipe: "5", quantity:1 },
     IRON_NUGGET: { id: 452, recipe: "265", quantity:9 },
     WOOD_PLANK: { id: 5, recipe: "17", quantity:4 },
-
     FLINT_AND_STEEL: { id: 259, recipe: "-1265318-1", quantity:1 },
+    STONE_PLATE:{id:70,recipe:["-1-144","44-1-1"],quantity:1},
+    IRON_PLATE:{id:148,recipe:["-1-1265265","265265-1-1"],quantity:1},
+    SHEARS: {id:359,recipe:["-1265265-1","265-1-1265"],quantity:1},
     LEVER: { id: 69, recipe: ["280-14-1", "-1280-14"], quantity:1 },
     TORCH: { id: 50, recipe: ["263-1280-1", "-1263-1280"], quantity:4 },
     REDSTONETORCH: { id: 76, recipe: ["331-1280-1", "-1331-1280"], quantity:1 },

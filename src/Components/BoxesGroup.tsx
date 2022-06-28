@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-operators */
 import { useEffect, useState } from "react";
 import Box from "./Box";
 import * as gameItems from "../gameItems";
@@ -127,7 +128,7 @@ export function BoxesGroup() {
       return;
     }
 
-    //Same items add quantity functionu
+    //Same items add quantity function
     if (
       inventoryBoxes[fromIndex].id !== inventoryBoxes[toIndex].id &&
       inventoryBoxes[fromIndex].itemID === inventoryBoxes[toIndex].itemID
@@ -138,16 +139,16 @@ export function BoxesGroup() {
       inventoryBoxes[fromIndex].itemID = undefined;
       inventoryBoxes[fromIndex].quantity = undefined;
       if (
-        toIndex == 0 ||
-        toIndex == 1 ||
-        toIndex == 2 ||
-        toIndex == 3 ||
-        toIndex == 4 ||
-        fromIndex == 0 ||
-        fromIndex == 1 ||
-        fromIndex == 2 ||
-        fromIndex == 3 ||
-        fromIndex == 4
+        toIndex === 0 ||
+        toIndex === 1 ||
+        toIndex === 2 ||
+        toIndex === 3 ||
+        toIndex === 4 ||
+        fromIndex === 0 ||
+        fromIndex === 1 ||
+        fromIndex === 2 ||
+        fromIndex === 3 ||
+        fromIndex === 4
       ) {
         checkRecipe();
       }
@@ -157,23 +158,32 @@ export function BoxesGroup() {
     //using only one quantity per drag in the inventory
     if (
       inventoryBoxes[fromIndex]!.quantity! > 1 &&
-      fromBox.id !== 46 &&
-      !inventoryBoxes[toIndex].itemID
+	  !inventoryBoxes[toIndex].itemID
+    &&
+	  toIndex === 0 ||
+	  toIndex === 1 ||
+	  toIndex === 2 ||
+	  toIndex === 3 
+    
     ) {
       --inventoryBoxes[fromIndex]!.quantity!;
       inventoryBoxes[toIndex].itemID = inventoryBoxes[fromIndex].itemID;
       inventoryBoxes[toIndex].quantity = 1;
+      if(inventoryBoxes[fromIndex].quantity===0){
+        inventoryBoxes[fromIndex].itemID = undefined;
+      }
+
       if (
-        toIndex == 0 ||
-        toIndex == 1 ||
-        toIndex == 2 ||
-        toIndex == 3 ||
-        toIndex == 4 ||
-        fromIndex == 0 ||
-        fromIndex == 1 ||
-        fromIndex == 2 ||
-        fromIndex == 3 ||
-        fromIndex == 4
+        toIndex === 0 ||
+        toIndex === 1 ||
+        toIndex === 2 ||
+        toIndex === 3 ||
+        toIndex === 4 ||
+        fromIndex === 0 ||
+        fromIndex === 1 ||
+        fromIndex === 2 ||
+        fromIndex === 3 ||
+        fromIndex === 4
       ) {
         checkRecipe();
       }
@@ -213,16 +223,16 @@ export function BoxesGroup() {
 
     //when move item to a crafting box
     if (
-      toIndex == 0 ||
-      toIndex == 1 ||
-      toIndex == 2 ||
-      toIndex == 3 ||
-      toIndex == 4 ||
-      fromIndex == 0 ||
-      fromIndex == 1 ||
-      fromIndex == 2 ||
-      fromIndex == 3 ||
-      fromIndex == 4
+      toIndex === 0 ||
+      toIndex === 1 ||
+      toIndex === 2 ||
+      toIndex === 3 ||
+      toIndex === 4 ||
+      fromIndex === 0 ||
+      fromIndex === 1 ||
+      fromIndex === 2 ||
+      fromIndex === 3 ||
+      fromIndex === 4
     ) {
       checkRecipe();
     }
@@ -250,8 +260,8 @@ export function BoxesGroup() {
     }
     //case crafting table has 2 or 3 items
     else if (
-      filledCraftingBoxes.length == 2 ||
-      filledCraftingBoxes.length == 3
+      filledCraftingBoxes.length === 2 ||
+      filledCraftingBoxes.length === 3
     ) {
       currRecipe = CraftingBoxes.map((n) => {
         if (n === undefined) {
