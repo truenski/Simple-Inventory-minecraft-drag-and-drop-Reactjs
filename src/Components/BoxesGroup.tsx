@@ -157,19 +157,17 @@ export function BoxesGroup() {
 
     //using only one quantity per drag in the inventory
     if (
-      inventoryBoxes[fromIndex]!.quantity! > 1 &&
-	  !inventoryBoxes[toIndex].itemID
-    &&
-	  toIndex === 0 ||
-	  toIndex === 1 ||
-	  toIndex === 2 ||
-	  toIndex === 3 
-    
+      (inventoryBoxes[fromIndex]!.quantity! > 1 &&
+        !inventoryBoxes[toIndex].itemID &&
+        toIndex === 0) ||
+      toIndex === 1 ||
+      toIndex === 2 ||
+      toIndex === 3
     ) {
       --inventoryBoxes[fromIndex]!.quantity!;
       inventoryBoxes[toIndex].itemID = inventoryBoxes[fromIndex].itemID;
       inventoryBoxes[toIndex].quantity = 1;
-      if(inventoryBoxes[fromIndex].quantity===0){
+      if (inventoryBoxes[fromIndex].quantity === 0) {
         inventoryBoxes[fromIndex].itemID = undefined;
       }
 
@@ -312,7 +310,6 @@ export function BoxesGroup() {
       let fromBox = JSON.stringify({ id: data.id });
       event.stopPropagation();
 
-    
       event.dataTransfer.setData("dragContent", fromBox);
       setIsDragging(true);
     };
@@ -345,7 +342,6 @@ export function BoxesGroup() {
 
       setIsDragging(false);
 
-
       if (box.class?.includes("result")) {
         return;
       }
@@ -356,16 +352,29 @@ export function BoxesGroup() {
       let fromBox = JSON.parse(event.dataTransfer.getData("dragContent"));
       let toBox = { id: box.id };
 
-	  if(fromBox.id === 46){ 
-		inventoryBoxes[0].itemID = undefined;
-		inventoryBoxes[1].itemID = undefined;
-		inventoryBoxes[2].itemID = undefined;
-		inventoryBoxes[3].itemID = undefined;
-		inventoryBoxes[0].quantity = undefined;
-		inventoryBoxes[1].quantity = undefined;
-		inventoryBoxes[2].quantity = undefined;
-		inventoryBoxes[3].quantity = undefined;
-		  }
+      if (
+        fromBox.id === 46 &&
+        (inventoryBoxes[0]?.quantity! === 1 ||
+          inventoryBoxes[1]?.quantity! === 1 ||
+          inventoryBoxes[2]?.quantity! === 1 ||
+          inventoryBoxes[3]?.quantity! === 1)
+      ) {
+        inventoryBoxes[0].itemID = undefined;
+        inventoryBoxes[1].itemID = undefined;
+        inventoryBoxes[2].itemID = undefined;
+        inventoryBoxes[3].itemID = undefined;
+      } else if (
+        fromBox.id === 46 &&
+        (inventoryBoxes[0]?.quantity! > 1 ||
+          inventoryBoxes[1]?.quantity! > 1 ||
+          inventoryBoxes[2]?.quantity! > 1 ||
+          inventoryBoxes[3]?.quantity! > 1)
+      ) {
+        --inventoryBoxes[0]!.quantity!;
+        --inventoryBoxes[1]!.quantity!;
+        --inventoryBoxes[2]!.quantity!;
+        --inventoryBoxes[3]!.quantity!;
+      }
       //Verificar se toBox pertence a armory
       //se sim - verificar tipo
       //se não - continue com swap
