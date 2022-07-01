@@ -6,7 +6,6 @@ type Props = {
 		itemID?: number | undefined;
 		class?: string | undefined;
 		quantity?: number | undefined;
-
 	},
 	draggable: boolean,
 	onDragStart: (arg0: { id: any; }) => DragEventHandler<HTMLDivElement> | undefined,
@@ -15,6 +14,7 @@ type Props = {
 		id?: number | undefined;
 		itemID?: number | undefined;
 		class?: string | undefined;
+		
 	}) => DragEventHandler<HTMLDivElement> | undefined,
 	onEnter: () => DragEventHandler<HTMLDivElement> | undefined,
 
@@ -23,7 +23,7 @@ type Props = {
 
 export default function Box({ box, draggable, onDragStart, onDragOver, onDrop, isDragging, onEnter }: Props) {
 
-		
+		//se não tiver a propriedade dragging, draggable é true
 	return (
 		<div
 			 className={box.class?`box ${box.class}`:"box"}

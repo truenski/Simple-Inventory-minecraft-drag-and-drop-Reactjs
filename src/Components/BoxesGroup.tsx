@@ -52,31 +52,37 @@ export function BoxesGroup() {
       id: 28,
       class: "select-group",
       itemID: gameItems.IRON_PICKAXE,
+      quantity: 1,
     },
     {
       id: 29,
       class: "select-group",
       itemID: gameItems.STONE_SWORD,
+      quantity: 1,
     },
     {
       id: 30,
       class: "select-group",
       itemID: gameItems.CHAINMAIL_HELMET,
+      quantity: 1,
     },
     {
       id: 31,
       class: "select-group",
       itemID: gameItems.CHAINMAIL_CHESTPLATE,
+      quantity: 1,
     },
     {
       id: 32,
       class: "select-group",
       itemID: gameItems.CHAINMAIL_BOOTS,
+      quantity: 1,
     },
     {
       id: 33,
       class: "select-group",
       itemID: gameItems.CHAINMAIL_LEGGINGS,
+      quantity: 1,
     },
     { id: 34, class: "select-group", itemID: gameItems.SHIELD, quantity: 1 },
     { id: 35, class: "select-group" },
@@ -157,12 +163,10 @@ export function BoxesGroup() {
 
     //using only one quantity per drag in the inventory
     if (
-      (inventoryBoxes[fromIndex]!.quantity! > 1 &&
-        !inventoryBoxes[toIndex].itemID &&
-        toIndex === 0) ||
-      toIndex === 1 ||
-      toIndex === 2 ||
-      toIndex === 3
+      inventoryBoxes[fromIndex]!.quantity! > 1 &&
+      !inventoryBoxes[toIndex].itemID &&
+      (toIndex === 0 || toIndex === 1 || toIndex === 2 || toIndex === 3) &&
+      fromIndex !== 4
     ) {
       --inventoryBoxes[fromIndex]!.quantity!;
       inventoryBoxes[toIndex].itemID = inventoryBoxes[fromIndex].itemID;
@@ -299,6 +303,7 @@ export function BoxesGroup() {
       target: any;
       stopPropagation: any;
       dataTransfer: {
+        setDragImage: any;
         dropEffect: any;
         effectAllowed: string;
         setData: (arg0: string, arg1: string) => void;
@@ -352,29 +357,29 @@ export function BoxesGroup() {
       let fromBox = JSON.parse(event.dataTransfer.getData("dragContent"));
       let toBox = { id: box.id };
 
-      if (
-        fromBox.id === 46 &&
-        (inventoryBoxes[0]?.quantity! === 1 ||
-          inventoryBoxes[1]?.quantity! === 1 ||
-          inventoryBoxes[2]?.quantity! === 1 ||
-          inventoryBoxes[3]?.quantity! === 1)
-      ) {
-        inventoryBoxes[0].itemID = undefined;
-        inventoryBoxes[1].itemID = undefined;
-        inventoryBoxes[2].itemID = undefined;
-        inventoryBoxes[3].itemID = undefined;
-      } else if (
-        fromBox.id === 46 &&
-        (inventoryBoxes[0]?.quantity! > 1 ||
-          inventoryBoxes[1]?.quantity! > 1 ||
-          inventoryBoxes[2]?.quantity! > 1 ||
-          inventoryBoxes[3]?.quantity! > 1)
-      ) {
+
+      //-1 quantity on crafting boxes when picking up result box
+      if (fromBox.id === 46) {
         --inventoryBoxes[0]!.quantity!;
         --inventoryBoxes[1]!.quantity!;
         --inventoryBoxes[2]!.quantity!;
         --inventoryBoxes[3]!.quantity!;
       }
+
+      //-1
+      if (!inventoryBoxes[0]!.quantity) {
+        inventoryBoxes[0].itemID = undefined;
+      }
+      if (!inventoryBoxes[1]!.quantity) {
+        inventoryBoxes[1].itemID = undefined;
+      }
+      if (!inventoryBoxes[2]!.quantity) {
+        inventoryBoxes[2].itemID = undefined;
+      }
+      if (!inventoryBoxes[3]!.quantity) {
+        inventoryBoxes[3].itemID = undefined;
+      }
+
       //Verificar se toBox pertence a armory
       //se sim - verificar tipo
       //se não - continue com swap

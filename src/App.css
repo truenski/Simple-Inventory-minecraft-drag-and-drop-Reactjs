@@ -11,6 +11,7 @@
  
   grid-template-rows: 0px 1fr 1fr 1fr 0px 56px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  user-select: none;
 }
 
 
@@ -32,8 +33,9 @@ body {
 
 
 .steve-background { 
-  left: 11.63em;
-  top: 5.1em;
+
+  left: 11.56em;
+  top: 5em;
   top: 1;
   position: relative;
   background-color: black;
@@ -61,6 +63,7 @@ body {
   height: 36px;
   float: left;
   position: relative;
+  user-select: none;
 }
 
 .result {
@@ -175,13 +178,13 @@ margin-top:10px;
 
   .crafting-3{
     position: relative;
-    left: 8.46em;
+    left: 8.48em;
     top: 4.3em;
   }
 
   .crafting-4{
     position: relative;
-    left: 8.46em;
+    left: 8.48em;
     top: 4.3em;
   }
 
