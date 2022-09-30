@@ -63,7 +63,7 @@ function App() {
         <br />
         <br />
         <ul>{materialsArr}</ul>
-        <b>Receitas:</b>
+        <b>Receitas Disponíveis:</b>
         <br />
         <br />
         <ul>{recipeArr}</ul>
