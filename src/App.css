@@ -257,11 +257,15 @@ margin-top:10px;
   list-style: decimal-leading-zero;
 }
 
-.materials .box{
-float:unset;  
+.materials{
+
 
 display: grid;
 grid-template-columns: 3fr 1fr 3fr;
+}
+
+.materials .box{
+float:unset;  
 }
 
 .materials .box:hover{
