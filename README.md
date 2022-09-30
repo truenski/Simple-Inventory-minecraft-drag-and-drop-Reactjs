@@ -4,6 +4,6 @@ O inventário em Minecraft é um menu, usado pelo jogador para gerenciar os iten
 
 
 <h3>Link para o projeto:</h3>
-http://minecraft-inventory-kesney-mendes.surge.sh/
+http://quickest-ducks.surge.sh/
 
 <img src="./src/assets/ezgif.com-gif-maker.gif" alt="Inventory Demonstration Gif"/>
