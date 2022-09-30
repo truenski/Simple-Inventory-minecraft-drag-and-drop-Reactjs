@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-  ]
+, "materials.ts"  ]
 }

@@ -4,7 +4,13 @@
   font-family: Minecraftia;
   text-align: center;
 
+  background: #00000066;
+  color: #c6c6c6;
+  padding: 20px;
+  height: max-content;
 }
+
+
 
 .boxesGroup {
   display: grid;
@@ -17,15 +23,13 @@
 
 body {
  
-  
-  color: #fad58d;
+
   display:flex;
   justify-content: center;
  
-    background-image: url('./assets/minecraft-background.gif'); 
+    background: url('./assets/minecraft-background.webp') fixed; 
     background-size: cover;
     
-    height: 100vh;
     padding:0;
     margin:0;
 
@@ -39,11 +43,11 @@ body {
   top: 1;
   position: relative;
   background-color: black;
-  background-image: url('./assets/villager.gif');
-  background-size: 14em;
+  background-image: url('./assets/villager.png');
+  background-size: 74px;
   background-repeat: no-repeat;
-  background-position: 42% 87%;
-  border-top: thick double #373737;
+  background-position: 42% 91%;
+    border-top: thick double #373737;
   border-left: thick double #373737;
   border-right: double #ffffff;
   border-bottom: double #ffffff;
@@ -137,6 +141,29 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   height: 23.6rem;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.github-link{
+text-decoration: none;
+color:inherit;
+}
+
+.github-link:hover{
+  color:orangered
+}
+
+.about{
+  padding-top:40px;
+  padding-bottom:40px;
+  display:block;
+  max-width:428px;
 }
 
 #inventory-div {
@@ -147,6 +174,7 @@ body {
   border-right: solid 5px;
   border-color: #373737;
   border-radius:3px;
+
 }
 
 .select-group {
@@ -223,3 +251,20 @@ margin-top:10px;
   -o-user-select: none;
   color:white;
 }
+
+.list{
+  text-align: start;
+  list-style: decimal-leading-zero;
+}
+
+.materials .box{
+float:unset;  
+
+display: grid;
+grid-template-columns: 3fr 1fr 3fr;
+}
+
+.materials .box:hover{
+  float:unset;  
+  background:#8b8b8b;
+  }
